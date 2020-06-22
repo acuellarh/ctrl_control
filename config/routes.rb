@@ -5,4 +5,11 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
+  
+  namespace :api do
+    namespace :v1 do
+      # Projects
+      resources :projects
+    end
+  end
 end
