@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Just for the first use, the ids is going to be used in the logic
+# Priority.delete_all
+# Priority.create ([
+#   {name: 'High'},
+#   {name: 'Medium'},
+#   {name: 'Low'},
+# ])
