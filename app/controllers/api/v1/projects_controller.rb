@@ -12,13 +12,14 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   # POST /projects
-  def create
-    @project = Project.new(project_params.merge(user_id: @user_request_id))
+  def create   
+    @project = Project.new(project_params)
     
     if @project.save
-      render json: @project, status: :created
+      render json: @project, status: :created, location: api_v1_projects_path(@project)
     else
       render json: @project.errors, status: :unprocessable_entity
+      byebug
     end
   end
 
@@ -41,7 +42,7 @@ class Api::V1::ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
     
-    def project_params
-      params.require(:project).permit(:title, :user_id).merge(user: current_user)     
+    def project_params              
+      params.require(:project).permit(:title, :user_id) 
     end
 end
