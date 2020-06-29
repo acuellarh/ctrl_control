@@ -8,8 +8,8 @@
 
 # Just for the first use, the ids is going to be used in the logic
 # Priority.delete_all
-# Priority.create ([
-#   {name: 'High'},
-#   {name: 'Medium'},
-#   {name: 'Low'},
-# ])
+Priority.create ([
+  {name: 'High'},
+  {name: 'Medium'},
+  {name: 'Low'},
+])

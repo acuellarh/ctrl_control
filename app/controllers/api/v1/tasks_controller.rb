@@ -18,7 +18,7 @@ class Api::V1::TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      render json: @task, status: :created, location: @task
+      render json: @task, status: :created, location: api_v1_tasks_path(@task) 
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class Api::V1::TasksController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def task_params
+    def task_params      
       params.require(:task).permit(:project_id, :priority_id, :description, :deadline, :state)
     end
 end
